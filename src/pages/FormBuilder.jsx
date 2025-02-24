@@ -12,11 +12,11 @@ function FormBuilder() {
   const selectedForm = useSelector((state) => state.form.selectedForm);
 
   const handleSave = async () => {
+    if (!title) return;
+
     const newForm = { ...selectedForm, title };
-    console.log("title-:", title);
 
     try {
-      // POST request to save the form in the JSON server
       const response = await fetch("http://localhost:5000/forms", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -25,8 +25,8 @@ function FormBuilder() {
 
       if (response.ok) {
         const savedForm = await response.json();
-        dispatch(addForm(savedForm)); // Save in Redux store
-        navigate("/forms"); // Redirect to forms list
+        dispatch(addForm(savedForm)); 
+        navigate("/forms"); 
       } else {
         console.error("Failed to save the form");
       }
@@ -41,6 +41,7 @@ function FormBuilder() {
       <div className="flex-1 p-8 pt-4 ">
         <p className="bg-[#d7e8ff] p-3 text-lg font-semibold">Form Title</p>
         <input
+          required
           type="text"
           placeholder="Enter Form Title"
           className="border rounded-sm p-2 w-full"
@@ -57,6 +58,7 @@ function FormBuilder() {
                   field.options.map((option, index) => (
                     <div key={index} className="flex items-center mb-1 ml-2">
                       <input
+                        required
                         type="radio"
                         readonly
                         name={field.label}
@@ -67,6 +69,7 @@ function FormBuilder() {
                   ))
                 ) : (
                   <input
+                    required
                     type={field.type}
                     className="border p-2 w-full rounded-md"
                     placeholder={field.placeholder}
