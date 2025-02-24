@@ -27,29 +27,31 @@ function FieldSettings() {
     if (!label || !selectedField) return;
 
     const newField = {
-      id: Date.now().toString(), // Ensure ID is a string
+      id: Date.now().toString(),
       type: selectedField,
       label,
-      placeholder: selectedField !== "radio" ? placeholder : "", // Remove placeholder for radio fields
-      options: selectedField === "radio" ? [...radioOptions] : [], // Store options for radio
+      placeholder: selectedField !== "radio" ? placeholder : "",
+      options: selectedField === "radio" ? [...radioOptions] : [],
     };
 
     dispatch(addField(newField));
 
-    // Reset input fields
     setLabel("");
     setPlaceholder("");
     setRadioOptions([]);
   };
 
   return (
-    <div className="w-1/4 bg-gray-100 p-4">
-      <h3 className="text-lg font-bold">Field Settings</h3>
+    <div className="w-full h-full md:w-1/4 bg-gray-100 p-4 rounded-sm shadow-md flex flex-col items-center md:items-start">
+      <h3 className="text-lg font-bold text-center md:text-left">
+        Field Settings
+      </h3>
 
       {selectedField && (
         <>
-          <label className="block">Label Name</label>
+          <label className="block w-full">Label Name</label>
           <input
+            required
             type="text"
             className="border p-2 w-full mb-2 rounded-md"
             value={label}
@@ -58,30 +60,33 @@ function FieldSettings() {
 
           {selectedField === "radio" ? (
             <>
-              <label className="block font-medium">Add Radio Options</label>
-              <div className="flex mb-2">
+              <label className="block font-medium w-full">
+                Add Radio Options
+              </label>
+              <div className="flex flex-col md:flex-row w-full mb-2">
                 <input
+                  required
                   type="text"
                   className="border p-2 w-full rounded-md"
                   value={optionInput}
                   onChange={(e) => setOptionInput(e.target.value)}
                 />
                 <button
-                  className="bg-green-500 text-white px-4 ml-2 rounded-md shadow-lg"
+                  className="bg-green-500 text-white px-4 py-2 mt-2 md:mt-0 md:ml-2 rounded-md shadow-lg"
                   onClick={handleAddOption}
                 >
                   Add
                 </button>
               </div>
-              <ul className="mb-2">
+              <ul className="mb-2 w-full">
                 {radioOptions.map((option, index) => (
                   <li
                     key={index}
-                    className="flex justify-between border p-2 mt-2"
+                    className="flex justify-between items-center border p-2 mt-2 rounded-md"
                   >
                     {option}
                     <button
-                      className="text-lg"
+                      className="text-lg text-red-500"
                       onClick={() => handleRemoveOption(index)}
                     >
                       <RiDeleteBin6Line />
@@ -92,8 +97,11 @@ function FieldSettings() {
             </>
           ) : (
             <>
-              <label className="block font-medium">Placeholder Name</label>
+              <label className="block font-medium w-full">
+                Placeholder Name
+              </label>
               <input
+                required
                 type="text"
                 className="border p-2 w-full mb-2 rounded-md"
                 value={placeholder}
@@ -103,7 +111,7 @@ function FieldSettings() {
           )}
 
           <button
-            className="bg-green-500 text-white px-4 py-2 mt-2 rounded-md shadow-lg"
+            className="bg-green-500 text-white px-4 py-2 mt-2 rounded-md shadow-lg w-full md:w-auto"
             onClick={handleAddField}
           >
             Add Field
