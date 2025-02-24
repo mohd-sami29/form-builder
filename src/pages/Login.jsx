@@ -9,7 +9,7 @@ function Login() {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    if (username === "admin" && password === "admin") {
+    if (username === "admin" && password === "admin@123") {
       localStorage.setItem("auth", true);
       navigate("/form-builder");
     } else {
