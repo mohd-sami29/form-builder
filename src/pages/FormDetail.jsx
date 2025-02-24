@@ -41,8 +41,31 @@ function FormDetail() {
     validateForm(fieldName, value);
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault(); 
     if (validationError) return;
+    if (!id) {
+      setValidationError("Form ID is missing.");
+      return;
+    }
+
+        // Check if all required fields are filled
+        const requiredFields = form?.fields?.filter((field) => field.required);
+        const emptyFields = requiredFields?.filter(
+          (field) => !responses[field.label]
+        );
+    
+        if (emptyFields?.length > 0) {
+          setValidationError("Please fill out all required fields.");
+          return;
+        }
+    
+        if (!Object.keys(responses).length) {
+          setValidationError("Please fill out the form before submitting.");
+          return;
+        }
+    
+        if (validationError) return;
 
     try {
       const responsePayload = { formId: id, responses };
@@ -97,7 +120,7 @@ function FormDetail() {
                         field.options.map((option, index) => (
                           <div key={index} className="flex items-center mb-1">
                             <input
-                              required
+                              required={field.required}
                               type="radio"
                               name={field.id}
                               value={option}
@@ -113,7 +136,7 @@ function FormDetail() {
                       )
                     ) : (
                       <input
-                        required
+                        required={field.required}
                         type={field.type}
                         className="border p-2 w-full"
                         placeholder={field.placeholder}
