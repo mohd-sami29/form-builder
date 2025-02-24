@@ -18,9 +18,9 @@ function Login() {
   };
 
   return (
-    <div className="bg-gray-50 w-full h-screen flex justify-center items-center">
-      <div className="bg-white border rounded-md p-12 w-1/4 shadow-lg text-center">
-        <h2 className="text-lg font-bold mb-4 border-b p-2">Admin Login</h2>
+    <div className="bg-gray-50 w-full h-screen flex justify-center items-center px-4">
+      <div className="bg-white border rounded-md p-6 sm:p-8 md:p-12 w-full max-w-sm sm:max-w-md md:max-w-lg shadow-lg text-center">
+        <h2 className="text-lg sm:text-xl font-bold mb-4 border-b p-2">Admin Login</h2>
         <input
           type="text"
           placeholder="Username"
@@ -43,11 +43,9 @@ function Login() {
         </button>
         <Link
           to="/"
-          className="flex rounded-sm border justify-center items-center"
+          className="flex items-center justify-center border rounded-sm p-2 text-gray-700 hover:bg-gray-100"
         >
-          <span>
-            <MdOutlineKeyboardBackspace />
-          </span>
+          <MdOutlineKeyboardBackspace className="mr-2" />
           Back
         </Link>
       </div>
