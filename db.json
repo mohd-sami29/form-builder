@@ -127,6 +127,57 @@
       "id": "1740338578051",
       "title": "Form-10",
       "fields": []
+    },
+    {
+      "id": "1740380738251",
+      "title": "Student Details",
+      "fields": [
+        {
+          "id": "1740380775523",
+          "type": "text",
+          "label": "Your Name",
+          "placeholder": "Enter Name",
+          "options": []
+        },
+        {
+          "id": "1740380791055",
+          "type": "number",
+          "label": "Age",
+          "placeholder": "Enter Age",
+          "options": []
+        },
+        {
+          "id": "1740380824818",
+          "type": "date",
+          "label": "Date",
+          "placeholder": "Enter Date",
+          "options": []
+        },
+        {
+          "id": "1740380853041",
+          "type": "radio",
+          "label": "Select Parent",
+          "placeholder": "",
+          "options": [
+            "Mother",
+            "Father"
+          ]
+        },
+        {
+          "id": "1740380898748",
+          "type": "text",
+          "label": "Mother's Name",
+          "placeholder": "Enter Mother Name",
+          "options": []
+        },
+        {
+          "id": "1740380922540",
+          "type": "text",
+          "label": "Father's Name",
+          "placeholder": "Enter Father Name",
+          "options": []
+        }
+      ]
     }
   ],
   "responses": [
