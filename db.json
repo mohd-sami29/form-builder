@@ -30,10 +30,7 @@
           "type": "radio",
           "label": "Gender",
           "placeholder": "",
-          "options": [
-            "Male",
-            "Female"
-          ]
+          "options": ["Male", "Female"]
         }
       ]
     },
@@ -81,10 +78,7 @@
           "type": "radio",
           "label": "Gender",
           "placeholder": "",
-          "options": [
-            "Male",
-            "Female"
-          ]
+          "options": ["Male", "Female"]
         }
       ]
     },
@@ -151,10 +145,7 @@
           "type": "radio",
           "label": "Gender",
           "placeholder": "",
-          "options": [
-            "Male",
-            "Female"
-          ]
+          "options": ["Male", "Female"]
         },
         {
           "id": "1740380824818",
@@ -164,14 +155,11 @@
           "options": []
         },
         {
-          "id": "1740380853041",
+          "id": "1740380853042",
           "type": "radio",
           "label": "Select Parent",
           "placeholder": "",
-          "options": [
-            "Mother",
-            "Father"
-          ]
+          "options": ["Mother", "Father"]
         },
         {
           "id": "1740380898748",
@@ -341,6 +329,30 @@
         "Mobile Number": "531312",
         "Date": "2025-02-20",
         "Gender": "Male"
+      }
+    },
+    {
+      "id": "7c8a",
+      "formId": "1740380738251",
+      "responses": {
+        "Your Name": "Sami",
+        "Age": "20",
+        "Gender": "Male",
+        "Date": "2025-02-24",
+        "Select Parent": "Father",
+        "Father's Name": "Md Safiullah"
+      }
+    },
+    {
+      "id": "c051",
+      "formId": "1740380738251",
+      "responses": {
+        "Your Name": "Kat",
+        "Age": "18",
+        "Gender": "Female",
+        "Date": "2025-02-24",
+        "Select Parent": "Mother",
+        "Mother's Name": "Alice"
       }
     }
   ]
