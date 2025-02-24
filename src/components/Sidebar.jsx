@@ -49,6 +49,12 @@ function Sidebar() {
       </div>
       <div className="flex flex-col items-center gap-y-6 w-full">
         <Link
+          to="/forms"
+          className="p-2 border rounded-md border-gray-300 font-medium w-full text-center"
+        >
+          View Forms
+        </Link>
+        <Link
           to="/responses"
           className="p-2 border rounded-md border-gray-300 font-medium w-full text-center"
         >
