@@ -1,14 +1,12 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addForm } from "../store/formSlice";
-import { useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import FieldSettings from "../components/FieldSettings";
 
 function FormBuilder() {
   const [title, setTitle] = useState("");
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const selectedForm = useSelector((state) => state.form.selectedForm);
 
   const handleSave = async () => {
@@ -25,14 +23,14 @@ function FormBuilder() {
 
       if (response.ok) {
         const savedForm = await response.json();
-        dispatch(addForm(savedForm)); 
-        navigate("/forms"); 
+        dispatch(addForm(savedForm));
       } else {
         console.error("Failed to save the form");
       }
     } catch (error) {
       console.error("Error:", error);
     }
+    setTitle("");
   };
 
   return (
