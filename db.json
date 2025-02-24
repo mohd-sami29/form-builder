@@ -147,6 +147,16 @@
           "options": []
         },
         {
+          "id": "1740380853041",
+          "type": "radio",
+          "label": "Gender",
+          "placeholder": "",
+          "options": [
+            "Male",
+            "Female"
+          ]
+        },
+        {
           "id": "1740380824818",
           "type": "date",
           "label": "Date",
